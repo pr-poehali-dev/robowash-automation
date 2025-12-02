@@ -8,8 +8,8 @@ const Index = () => {
 
   const equipment = [
     {
-      name: "RoboWash-1000",
-      image: "https://cdn.poehali.dev/projects/13dbc0b0-e959-4466-b7fd-12ab07142fb1/files/d14f54da-e6c6-454d-b21e-5020d51fa3ff.jpg",
+      name: "RoboWash-1",
+      image: "https://cdn.poehali.dev/files/48697cc8-281c-44fa-a95a-633495e55baa.jpg",
       description: "Полностью автоматическая роботизированная мойка для легковых автомобилей",
       features: ["Мойка днища и колёс", "Активная пена", "Воск и эмульсия", "Турбо-сушка"]
     },

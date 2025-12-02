@@ -210,7 +210,7 @@ const Index = () => {
                 <CardContent className="p-6">
                   <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">{item.name}</h3>
                   <p className="text-foreground/70 mb-4">{item.description}</p>
-                  <div className="space-y-2 mb-4">
+                  <div className="space-y-2 mb-6">
                     {item.features.map((feature, featureIdx) => (
                       <div key={featureIdx} className="flex items-center gap-2">
                         <Icon name="Check" size={16} className="text-primary" />
@@ -218,7 +218,7 @@ const Index = () => {
                       </div>
                     ))}
                   </div>
-                  <Button className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90">
+                  <Button size="sm" className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90">
                     Подробнее
                   </Button>
                 </CardContent>

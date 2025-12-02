@@ -168,7 +168,7 @@ const Index = () => {
                 <CardContent className="p-6">
                   <Icon name="Sparkles" className="text-secondary mb-3" size={40} />
                   <h4 className="font-bold mb-2">Качество</h4>
-                  <p className="text-sm text-foreground/70">Мойка под разными углами</p>
+                  <p className="text-sm text-foreground/70">Мойка под разными углами с высоким давлением</p>
                 </CardContent>
               </Card>
               <Card className="border-2 hover:border-accent transition-all">

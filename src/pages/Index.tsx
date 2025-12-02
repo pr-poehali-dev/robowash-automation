@@ -14,10 +14,10 @@ const Index = () => {
       features: ["Мойка днища и колёс", "Активная пена", "Воск и эмульсия", "Турбо-сушка"]
     },
     {
-      name: "RoboWash Self-Service",
-      image: "https://cdn.poehali.dev/projects/13dbc0b0-e959-4466-b7fd-12ab07142fb1/files/32bb0ea0-5067-4b44-8938-53f329ceec0d.jpg",
-      description: "Современная мойка самообслуживания с терминалом оплаты",
-      features: ["Круглосуточная работа", "Безналичная оплата", "5 программ мойки", "Датчики контроля"]
+      name: "RoboWash-Bus",
+      image: "https://cdn.poehali.dev/files/be91b3ee-ea91-4d8f-af66-d5da38a4a365.jpg",
+      description: "Мощная портальная мойка для автобусов и крупногабаритного транспорта",
+      features: ["Увеличенный портал", "Высокие щетки", "Мощная система мойки", "Автоматическая сушка"]
     },
     {
       name: "RoboWash Truck",

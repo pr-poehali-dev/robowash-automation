@@ -1,10 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { useState } from "react";
 
 const Index = () => {
   const [activeService, setActiveService] = useState(0);
+  const [isFormOpen, setIsFormOpen] = useState(false);
+  const [formData, setFormData] = useState({ name: '', city: '', phone: '' });
 
   const equipment = [
     {
@@ -98,7 +103,11 @@ const Index = () => {
               Производство, установка и обслуживание автоматических моек для вашего бизнеса
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Button size="lg" className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-lg px-8">
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-lg px-8"
+                onClick={() => setIsFormOpen(true)}
+              >
                 <Icon name="ArrowRight" size={20} className="mr-2" />
                 Получить консультацию
               </Button>
@@ -401,14 +410,75 @@ const Index = () => {
         </div>
       </section>
 
+      <Dialog open={isFormOpen} onOpenChange={setIsFormOpen}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold">Получить консультацию</DialogTitle>
+            <DialogDescription>
+              Заполните форму и мы свяжемся с вами в ближайшее время
+            </DialogDescription>
+          </DialogHeader>
+          <form className="space-y-4" onSubmit={(e) => {
+            e.preventDefault();
+            console.log('Form data:', formData);
+            alert(`Спасибо, ${formData.name}! Мы свяжемся с вами по номеру ${formData.phone}`);
+            setIsFormOpen(false);
+            setFormData({ name: '', city: '', phone: '' });
+          }}>
+            <div>
+              <Label htmlFor="name">Имя *</Label>
+              <Input
+                id="name"
+                type="text"
+                required
+                placeholder="Ваше имя"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                className="mt-2"
+              />
+            </div>
+            <div>
+              <Label htmlFor="city">Город *</Label>
+              <Input
+                id="city"
+                type="text"
+                required
+                placeholder="Ваш город"
+                value={formData.city}
+                onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+                className="mt-2"
+              />
+            </div>
+            <div>
+              <Label htmlFor="phone">Номер телефона *</Label>
+              <Input
+                id="phone"
+                type="tel"
+                required
+                placeholder="+7 (___) ___-__-__"
+                value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                className="mt-2"
+              />
+            </div>
+            <Button type="submit" className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90">
+              <Icon name="Send" size={20} className="mr-2" />
+              Отправить заявку
+            </Button>
+          </form>
+        </DialogContent>
+      </Dialog>
+
       <footer className="bg-foreground text-background py-12 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
-                  <Icon name="Droplets" className="text-white" size={24} />
-                </div>
+                <img 
+                  src="https://cdn.poehali.dev/files/73b4fb79-af64-41a2-8614-1a9f7e6ba02e.png" 
+                  alt="RoboWash Logo" 
+                  className="w-10 h-10 object-contain"
+                />
                 <span className="text-xl font-bold">RoboWash</span>
               </div>
               <p className="text-background/70 text-sm">

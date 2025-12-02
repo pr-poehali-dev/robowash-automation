@@ -418,12 +418,31 @@ const Index = () => {
               Заполните форму и мы свяжемся с вами в ближайшее время
             </DialogDescription>
           </DialogHeader>
-          <form className="space-y-4" onSubmit={(e) => {
+          <form className="space-y-4" onSubmit={async (e) => {
             e.preventDefault();
-            console.log('Form data:', formData);
-            alert(`Спасибо, ${formData.name}! Мы свяжемся с вами по номеру ${formData.phone}`);
-            setIsFormOpen(false);
-            setFormData({ name: '', city: '', phone: '' });
+            
+            try {
+              const response = await fetch('https://functions.poehali.dev/e54a91ec-3eda-4c5b-a862-03cc22f670d2', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+              });
+              
+              const result = await response.json();
+              
+              if (response.ok) {
+                alert(`Спасибо, ${formData.name}! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.`);
+                setIsFormOpen(false);
+                setFormData({ name: '', city: '', phone: '' });
+              } else {
+                alert('Ошибка при отправке заявки. Попробуйте позже или позвоните нам: +7 (927) 454-32-32');
+              }
+            } catch (error) {
+              console.error('Error:', error);
+              alert('Ошибка при отправке заявки. Попробуйте позже или позвоните нам: +7 (927) 454-32-32');
+            }
           }}>
             <div>
               <Label htmlFor="name">Имя *</Label>

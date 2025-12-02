@@ -53,7 +53,7 @@ const Index = () => {
   const advantages = [
     { number: "50+", label: "Установленных моек", icon: "CheckCircle2" },
     { number: "24/7", label: "Техподдержка", icon: "Clock" },
-    { number: "15+", label: "Лет на рынке", icon: "Award" },
+    { number: "4+", label: "Лет на рынке", icon: "Award" },
     { number: "99%", label: "Довольных клиентов", icon: "Users" }
   ];
 

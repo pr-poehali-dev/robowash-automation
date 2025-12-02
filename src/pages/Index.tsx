@@ -161,7 +161,7 @@ const Index = () => {
                 <CardContent className="p-6">
                   <Icon name="Target" className="text-primary mb-3" size={40} />
                   <h4 className="font-bold mb-2">Точность</h4>
-                  <p className="text-sm text-foreground/70">Датчики определяют габариты авто</p>
+                  <p className="text-sm text-foreground/70">Датчики определяют габариты и позицию авто на мойке</p>
                 </CardContent>
               </Card>
               <Card className="border-2 hover:border-secondary transition-all">

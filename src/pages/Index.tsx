@@ -605,7 +605,7 @@ const Index = () => {
               <ul className="space-y-2 text-sm text-background/70">
                 <li>+7 (927) 454-32-32</li>
                 <li>info@robowash.ru</li>
-                <li>Республика Татарстан, г. Елабуга, Окружное шоссе 11б</li>
+                <li>Республика Татарстан, г.Елабуга, Окружное шоссе 11б</li>
               </ul>
             </div>
           </div>

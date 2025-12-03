@@ -393,11 +393,55 @@ const Index = () => {
             <Card className="border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-secondary/5">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-6">Оставьте заявку</h3>
-                <form className="space-y-4">
+                <form className="space-y-4" onSubmit={async (e) => {
+                  e.preventDefault();
+                  const form = e.target as HTMLFormElement;
+                  const formData = {
+                    name: (form.elements.namedItem('contact-name') as HTMLInputElement).value,
+                    city: 'Не указан',
+                    phone: (form.elements.namedItem('contact-phone') as HTMLInputElement).value,
+                  };
+
+                  if (!formData.name || !formData.phone) {
+                    toast.error('Заполните все поля');
+                    return;
+                  }
+
+                  try {
+                    const response = await fetch('https://functions.poehali.dev/e54a91ec-3eda-4c5b-a862-03cc22f670d2', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify(formData),
+                    });
+
+                    const result = await response.json();
+
+                    if (response.ok) {
+                      toast.success('Заявка отправлена!', {
+                        description: 'Мы свяжемся с вами в ближайшее время',
+                        duration: 5000,
+                      });
+                      form.reset();
+                    } else {
+                      toast.error('Ошибка при отправке', {
+                        description: 'Попробуйте позже или позвоните нам: +7 (927) 454-32-46',
+                        duration: 5000,
+                      });
+                    }
+                  } catch (error) {
+                    console.error('Error:', error);
+                    toast.error('Ошибка при отправке', {
+                      description: 'Попробуйте позже или позвоните нам: +7 (927) 454-32-46',
+                      duration: 5000,
+                    });
+                  }
+                }}>
                   <div>
                     <label className="block text-sm font-medium mb-2">Имя</label>
                     <input 
                       type="text" 
+                      name="contact-name"
+                      required
                       className="w-full px-4 py-3 rounded-lg border-2 border-input focus:border-primary outline-none transition-colors"
                       placeholder="Ваше имя"
                     />
@@ -406,13 +450,15 @@ const Index = () => {
                     <label className="block text-sm font-medium mb-2">Телефон</label>
                     <input 
                       type="tel" 
+                      name="contact-phone"
+                      required
                       className="w-full px-4 py-3 rounded-lg border-2 border-input focus:border-primary outline-none transition-colors"
                       placeholder="+7 (___) ___-__-__"
                     />
                   </div>
 
 
-                  <Button className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-lg py-6">
+                  <Button type="submit" className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-lg py-6">
                     <Icon name="Send" size={20} className="mr-2" />
                     Отправить заявку
                   </Button>

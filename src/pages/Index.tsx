@@ -398,11 +398,11 @@ const Index = () => {
                   const form = e.target as HTMLFormElement;
                   const formData = {
                     name: (form.elements.namedItem('contact-name') as HTMLInputElement).value,
-                    city: 'Не указан',
+                    city: (form.elements.namedItem('contact-city') as HTMLInputElement).value,
                     phone: (form.elements.namedItem('contact-phone') as HTMLInputElement).value,
                   };
 
-                  if (!formData.name || !formData.phone) {
+                  if (!formData.name || !formData.city || !formData.phone) {
                     toast.error('Заполните все поля');
                     return;
                   }
@@ -444,6 +444,16 @@ const Index = () => {
                       required
                       className="w-full px-4 py-3 rounded-lg border-2 border-input focus:border-primary outline-none transition-colors"
                       placeholder="Ваше имя"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Город</label>
+                    <input 
+                      type="text" 
+                      name="contact-city"
+                      required
+                      className="w-full px-4 py-3 rounded-lg border-2 border-input focus:border-primary outline-none transition-colors"
+                      placeholder="Ваш город"
                     />
                   </div>
                   <div>

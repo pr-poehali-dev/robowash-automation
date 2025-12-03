@@ -291,7 +291,7 @@ const Index = () => {
               <CardContent className="p-6">
                 <Icon name="Percent" className="text-primary mb-3" size={32} />
                 <h4 className="font-bold mb-2">Финансовые решения</h4>
-                <p className="text-sm text-foreground/70">Рассрочка, кредит или лизинг на выгодных условиях</p>
+                <p className="text-sm text-foreground/70">Лизинг на выгодных условиях</p>
               </CardContent>
             </Card>
             <Card className="border-2">

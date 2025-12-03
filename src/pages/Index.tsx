@@ -138,7 +138,7 @@ const Index = () => {
             <div className="flex flex-wrap gap-4 justify-center">
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-lg px-8"
+                className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-lg px-8 animate-glow shadow-lg"
                 onClick={() => setIsFormOpen(true)}
               >
                 <Icon name="ArrowRight" size={20} className="mr-2" />
@@ -147,7 +147,7 @@ const Index = () => {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-2 text-lg px-8"
+                className="border-2 border-primary/50 text-lg px-8 hover:border-primary hover:bg-primary/10 hover:shadow-[0_0_20px_rgba(14,165,233,0.3)] transition-all"
                 onClick={() => window.open('https://dzen.ru/video/watch/64ac2d3a1adca932f68feacd?share_to=link', '_blank')}
               >
                 <Icon name="Play" size={20} className="mr-2" />
@@ -158,7 +158,7 @@ const Index = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 animate-slide-up">
             {advantages.map((item, idx) => (
-              <Card key={idx} className="border-2 hover:border-primary transition-all hover:scale-105">
+              <Card key={idx} className="border-2 border-primary/30 hover:border-primary transition-all hover:scale-105 glow-card bg-card/50 backdrop-blur-sm">
                 <CardContent className="p-4 md:p-6 text-center">
                   <Icon name={item.icon as any} className="text-primary mx-auto mb-2" size={28} />
                   <div className="text-2xl md:text-3xl font-bold text-primary mb-1">{item.number}</div>
@@ -273,7 +273,7 @@ const Index = () => {
 
           <div className="grid md:grid-cols-3 gap-8 items-stretch">
             {equipment.map((item, idx) => (
-              <Card key={idx} className="group hover:shadow-2xl transition-all duration-300 border-2 hover:border-primary overflow-hidden flex flex-col">
+              <Card key={idx} className="group glow-card transition-all duration-300 border-2 border-primary/30 hover:border-primary overflow-hidden flex flex-col bg-card/50 backdrop-blur-sm">
                 <div className="overflow-hidden">
                   <img 
                     src={item.image} 
@@ -312,10 +312,10 @@ const Index = () => {
             {services.map((service, idx) => (
               <Card 
                 key={idx}
-                className={`cursor-pointer transition-all duration-300 border-2 ${
+                className={`cursor-pointer transition-all duration-300 border-2 bg-card/50 backdrop-blur-sm ${
                   activeService === idx 
-                    ? 'border-primary shadow-lg scale-105' 
-                    : 'hover:border-primary/50'
+                    ? 'border-primary scale-105 glow-card shadow-[0_0_30px_rgba(14,165,233,0.4)]' 
+                    : 'border-primary/30 hover:border-primary/50 glow-card'
                 }`}
                 onClick={() => setActiveService(idx)}
               >
@@ -339,21 +339,21 @@ const Index = () => {
           </div>
 
           <div className="mt-12 grid md:grid-cols-3 gap-6">
-            <Card className="border-2">
+            <Card className="border-2 border-primary/30 glow-card hover:border-primary transition-all bg-card/50 backdrop-blur-sm">
               <CardContent className="p-6">
                 <Icon name="Percent" className="text-primary mb-3" size={32} />
                 <h4 className="font-bold mb-2">Финансовые решения</h4>
                 <p className="text-sm text-foreground/70">Лизинг на выгодных условиях</p>
               </CardContent>
             </Card>
-            <Card className="border-2">
+            <Card className="border-2 border-secondary/30 hover:border-secondary transition-all bg-card/50 backdrop-blur-sm hover:shadow-[0_0_25px_rgba(139,92,246,0.3)]">
               <CardContent className="p-6">
                 <Icon name="GraduationCap" className="text-secondary mb-3" size={32} />
                 <h4 className="font-bold mb-2">Обучение персонала</h4>
                 <p className="text-sm text-foreground/70">Инструкции на русском языке и практическое обучение</p>
               </CardContent>
             </Card>
-            <Card className="border-2">
+            <Card className="border-2 border-accent/30 hover:border-accent transition-all bg-card/50 backdrop-blur-sm hover:shadow-[0_0_25px_rgba(249,115,22,0.3)]">
               <CardContent className="p-6">
                 <Icon name="BarChart" className="text-accent mb-3" size={32} />
                 <h4 className="font-bold mb-2">Программы лояльности</h4>
@@ -372,7 +372,7 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <Card className="border-2">
+            <Card className="border-2 border-primary/30 glow-card bg-card/50 backdrop-blur-sm">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-6">Контактная информация</h3>
                 <div className="space-y-4">
@@ -442,7 +442,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-secondary/5">
+            <Card className="border-2 border-secondary/30 bg-gradient-to-br from-primary/10 to-secondary/10 backdrop-blur-sm hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] transition-all">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-6">Оставьте заявку</h3>
                 <form className="space-y-4" onSubmit={async (e) => {
@@ -520,7 +520,7 @@ const Index = () => {
                   </div>
 
 
-                  <Button type="submit" className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-lg py-6">
+                  <Button type="submit" className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-lg py-6 animate-glow shadow-lg">
                     <Icon name="Send" size={20} className="mr-2" />
                     Отправить заявку
                   </Button>
@@ -610,7 +610,7 @@ const Index = () => {
                 className="mt-2"
               />
             </div>
-            <Button type="submit" className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 shadow-lg">
+            <Button type="submit" className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 shadow-lg animate-glow">
               <Icon name="Calculator" size={20} className="mr-2" />
               Получить расчёт прибыли
             </Button>

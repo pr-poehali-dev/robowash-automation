@@ -343,7 +343,7 @@ const Sections = ({ activeService, setActiveService }: SectionsProps) => {
                       </a>
                     </Button>
                     <Button size="icon" variant="outline" className="hover:bg-primary hover:text-white hover:border-primary" asChild>
-                      <a href="https://vk.com/robowash" target="_blank" rel="noopener noreferrer">
+                      <a href="https://vk.com/robowash_rus" target="_blank" rel="noopener noreferrer">
                         <Icon name="MessageCircle" size={20} />
                       </a>
                     </Button>

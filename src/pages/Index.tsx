@@ -581,7 +581,7 @@ const Index = () => {
                 <span className="text-xl font-bold">RoboWash</span>
               </div>
               <p className="text-background/70 text-sm">
-                Роботизированные автомойки нового поколения
+                Автоматические мойки нового поколения
               </p>
             </div>
             <div>

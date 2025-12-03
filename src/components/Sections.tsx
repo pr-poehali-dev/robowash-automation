@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
 import { toast } from "sonner";
+import { useState } from "react";
 
 interface SectionsProps {
   activeService: number;
@@ -9,6 +10,28 @@ interface SectionsProps {
 }
 
 const Sections = ({ activeService, setActiveService }: SectionsProps) => {
+  const [phoneValue, setPhoneValue] = useState('');
+
+  const formatPhoneNumber = (value: string) => {
+    const digits = value.replace(/\D/g, '');
+    
+    if (digits.length === 0) return '';
+    if (digits.length <= 1) return `+${digits}`;
+    if (digits.length <= 4) return `+${digits.slice(0, 1)} (${digits.slice(1)}`;
+    if (digits.length <= 7) return `+${digits.slice(0, 1)} (${digits.slice(1, 4)}) ${digits.slice(4)}`;
+    if (digits.length <= 9) return `+${digits.slice(0, 1)} (${digits.slice(1, 4)}) ${digits.slice(4, 7)}-${digits.slice(7)}`;
+    return `+${digits.slice(0, 1)} (${digits.slice(1, 4)}) ${digits.slice(4, 7)}-${digits.slice(7, 9)}-${digits.slice(9, 11)}`;
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formatted = formatPhoneNumber(e.target.value);
+    setPhoneValue(formatted);
+  };
+
+  const isValidPhone = (phone: string) => {
+    const digits = phone.replace(/\D/g, '');
+    return digits.length === 11 && digits.startsWith('7');
+  };
   const equipment = [
     {
       name: "RoboWash-Car",
@@ -67,6 +90,14 @@ const Sections = ({ activeService, setActiveService }: SectionsProps) => {
       return;
     }
 
+    if (!isValidPhone(formData.phone)) {
+      toast.error('Неверный формат номера', {
+        description: 'Введите корректный российский номер телефона',
+        duration: 3000,
+      });
+      return;
+    }
+
     try {
       const response = await fetch('https://functions.poehali.dev/e54a91ec-3eda-4c5b-a862-03cc22f670d2', {
         method: 'POST',
@@ -82,6 +113,7 @@ const Sections = ({ activeService, setActiveService }: SectionsProps) => {
           duration: 5000,
         });
         form.reset();
+        setPhoneValue('');
       } else {
         toast.error('Ошибка при отправке', {
           description: 'Попробуйте позже или позвоните нам: +7 (927) 454-32-46',
@@ -384,8 +416,11 @@ const Sections = ({ activeService, setActiveService }: SectionsProps) => {
                     <input 
                       type="tel" 
                       name="contact-phone"
+                      value={phoneValue}
+                      onChange={handlePhoneChange}
                       className="w-full px-4 py-3 rounded-lg border-2 border-input focus:border-primary outline-none transition-colors bg-background"
                       placeholder="+7 (___) ___-__-__"
+                      maxLength={18}
                     />
                   </div>
 

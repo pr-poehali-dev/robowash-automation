@@ -13,8 +13,37 @@ interface ContactDialogProps {
 }
 
 const ContactDialog = ({ isOpen, onOpenChange, formData, setFormData }: ContactDialogProps) => {
+  const formatPhoneNumber = (value: string) => {
+    const digits = value.replace(/\D/g, '');
+    
+    if (digits.length === 0) return '';
+    if (digits.length <= 1) return `+${digits}`;
+    if (digits.length <= 4) return `+${digits.slice(0, 1)} (${digits.slice(1)}`;
+    if (digits.length <= 7) return `+${digits.slice(0, 1)} (${digits.slice(1, 4)}) ${digits.slice(4)}`;
+    if (digits.length <= 9) return `+${digits.slice(0, 1)} (${digits.slice(1, 4)}) ${digits.slice(4, 7)}-${digits.slice(7)}`;
+    return `+${digits.slice(0, 1)} (${digits.slice(1, 4)}) ${digits.slice(4, 7)}-${digits.slice(7, 9)}-${digits.slice(9, 11)}`;
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formatted = formatPhoneNumber(e.target.value);
+    setFormData({ ...formData, phone: formatted });
+  };
+
+  const isValidPhone = (phone: string) => {
+    const digits = phone.replace(/\D/g, '');
+    return digits.length === 11 && digits.startsWith('7');
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!isValidPhone(formData.phone)) {
+      toast.error('Неверный формат номера', {
+        description: 'Введите корректный российский номер телефона',
+        duration: 3000,
+      });
+      return;
+    }
     
     try {
       const response = await fetch('https://functions.poehali.dev/e54a91ec-3eda-4c5b-a862-03cc22f670d2', {
@@ -91,8 +120,9 @@ const ContactDialog = ({ isOpen, onOpenChange, formData, setFormData }: ContactD
               required
               placeholder="+7 (___) ___-__-__"
               value={formData.phone}
-              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+              onChange={handlePhoneChange}
               className="mt-2"
+              maxLength={18}
             />
           </div>
           <Button type="submit" className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 shadow-lg animate-glow">

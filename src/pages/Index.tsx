@@ -86,10 +86,12 @@ const Index = () => {
           </div>
           <Button 
             className="bg-gradient-to-r from-primary to-secondary hover:opacity-90"
-            onClick={() => setIsFormOpen(true)}
+            asChild
           >
-            <Icon name="Phone" size={16} className="mr-2" />
-            Связаться
+            <a href="tel:+79274543232">
+              <Icon name="Phone" size={16} className="mr-2" />
+              Связаться
+            </a>
           </Button>
         </div>
       </nav>

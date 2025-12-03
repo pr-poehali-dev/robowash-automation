@@ -37,22 +37,22 @@ const Index = () => {
     {
       icon: "Hammer",
       title: "Производство",
-      description: "Выпускаем роботизированные мойки с собственным ПО и системами управления"
+      description: "Собственное производство с контролем качества. Гарантия 1 год на всё оборудование"
     },
     {
       icon: "Wrench",
-      title: "Установка",
-      description: "Монтаж и настройка оборудования с гарантией качества работ"
+      title: "Установка за 7 дней",
+      description: "Быстрый монтаж и запуск. Помощь с документами и разрешениями"
     },
     {
       icon: "Settings",
-      title: "Обслуживание",
-      description: "Техподдержка 24/7, удалённая диагностика и исправление ошибок"
+      title: "Поддержка 24/7",
+      description: "Удалённая диагностика и выезд специалиста в течение 24 часов"
     },
     {
       icon: "TrendingUp",
       title: "Бизнес под ключ",
-      description: "Полный цикл создания автомоечного комплекса от проекта до запуска"
+      description: "От выбора участка до первой прибыли. Обучение персонала в подарок"
     }
   ];
 
@@ -104,11 +104,11 @@ const Index = () => {
         
         <div className="container mx-auto text-center max-w-4xl px-4">
           <div className="animate-fade-in">
-            <h1 className="text-3xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent leading-tight">
-              Автоматические мойки нового поколения
+            <h1 className="text-4xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent leading-tight">
+              Увеличьте прибыль автомойки в 3 раза
             </h1>
             <p className="text-xl md:text-2xl text-foreground/70 mb-8 max-w-2xl mx-auto">
-              Производство, установка и обслуживание автоматических моек для вашего бизнеса
+              Роботизированные мойки с окупаемостью за 8-12 месяцев. Установка под ключ за 7 дней
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Button 
@@ -117,7 +117,7 @@ const Index = () => {
                 onClick={() => setIsFormOpen(true)}
               >
                 <Icon name="ArrowRight" size={20} className="mr-2" />
-                Получить консультацию
+                Рассчитать окупаемость
               </Button>
               <Button 
                 size="lg" 
@@ -148,23 +148,45 @@ const Index = () => {
       <section id="about" className="py-20 px-4 bg-muted/50">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">О компании RoboWash</h2>
+            <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">⭐ НАДЁЖНЫЙ ПРОИЗВОДИТЕЛЬ</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Почему выбирают RoboWash?</h2>
             <p className="text-xl text-foreground/70 max-w-2xl mx-auto">
-              Научно-производственное объединение с базой в Елабуге (Республика Татарстан)
+              50+ запущенных моек в России. Полный цикл от производства до сервиса
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 className="text-2xl font-bold mb-4 text-primary">Наша миссия</h3>
-              <p className="text-foreground/80 mb-4">
-                RoboWash специализируется на разработке, производстве, поставке, установке и обслуживании 
-                автоматических моек и сопутствующего оборудования.
-              </p>
-              <p className="text-foreground/80 mb-6">
-                Мы предлагаем решения для бизнеса, включая полный цикл создания автомоечного комплекса «под ключ» 
-                с собственным программным обеспечением и системами управления.
-              </p>
+              <h3 className="text-3xl font-bold mb-6 text-primary">Получите готовый бизнес за 7 дней</h3>
+              <div className="space-y-4">
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Icon name="CheckCircle2" className="text-primary" size={20} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold mb-1">Собственное производство</h4>
+                    <p className="text-foreground/70 text-sm">Контролируем качество на каждом этапе. Гарантия 1 год на все оборудование</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Icon name="CheckCircle2" className="text-primary" size={20} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold mb-1">Быстрая установка</h4>
+                    <p className="text-foreground/70 text-sm">Монтаж и запуск мойки за 7 дней. Помогаем с получением всех документов</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Icon name="CheckCircle2" className="text-primary" size={20} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold mb-1">Поддержка 24/7</h4>
+                    <p className="text-foreground/70 text-sm">Удалённая диагностика и выезд специалиста в течение 24 часов</p>
+                  </div>
+                </div>
+              </div>
               <div className="flex flex-wrap gap-3">
                 <div className="flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full">
                   <Icon name="Shield" size={20} className="text-primary" />
@@ -214,11 +236,13 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="equipment" className="py-20 px-4">
+      <section id="equipment" className="py-20 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background -z-10" />
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Наше оборудование</h2>
-            <p className="text-xl text-foreground/70">Современные решения для любого типа транспорта</p>
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-semibold mb-4">💎 ПРЕМИУМ ОБОРУДОВАНИЕ</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Выберите свою мойку</h2>
+            <p className="text-xl text-foreground/70">От компактных станций до промышленных комплексов</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 items-stretch">
@@ -251,9 +275,10 @@ const Index = () => {
 
       <section id="services" className="py-20 px-4 bg-muted/50">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Наши услуги</h2>
-            <p className="text-xl text-foreground/70">Полный цикл от разработки до обслуживания</p>
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-semibold mb-4">🚀 ВСЁ ВКЛЮЧЕНО</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Бизнес под ключ</h2>
+            <p className="text-xl text-foreground/70">От проекта до первой прибыли — мы делаем всё</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -316,7 +341,7 @@ const Index = () => {
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Свяжитесь с нами</h2>
-            <p className="text-xl text-foreground/70">Готовы ответить на все ваши вопросы</p>
+            <p className="text-xl text-foreground/70">Ответим на все вопросы и рассчитаем проект за 1 день</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -482,9 +507,9 @@ const Index = () => {
       <Dialog open={isFormOpen} onOpenChange={setIsFormOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-bold">Получить консультацию</DialogTitle>
+            <DialogTitle className="text-2xl font-bold">Рассчитать окупаемость</DialogTitle>
             <DialogDescription>
-              Заполните форму и мы свяжемся с вами в ближайшее время
+              Получите бесплатный бизнес-план и смету за 24 часа
             </DialogDescription>
           </DialogHeader>
           <form className="space-y-4" onSubmit={async (e) => {
@@ -558,9 +583,9 @@ const Index = () => {
                 className="mt-2"
               />
             </div>
-            <Button type="submit" className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90">
-              <Icon name="Send" size={20} className="mr-2" />
-              Отправить заявку
+            <Button type="submit" className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 shadow-lg">
+              <Icon name="Calculator" size={20} className="mr-2" />
+              Получить расчёт прибыли
             </Button>
           </form>
         </DialogContent>

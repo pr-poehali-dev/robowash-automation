@@ -19,6 +19,60 @@ const Index = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Generate stars
+  const generateStars = () => {
+    const stars = [];
+    for (let i = 0; i < 100; i++) {
+      const size = Math.random() * 2 + 1;
+      const x = Math.random() * 100;
+      const y = Math.random() * 100;
+      const delay = Math.random() * 3;
+      const duration = Math.random() * 2 + 2;
+      stars.push(
+        <div
+          key={`star-${i}`}
+          className="star"
+          style={{
+            width: `${size}px`,
+            height: `${size}px`,
+            left: `${x}%`,
+            top: `${y}%`,
+            animationDelay: `${delay}s`,
+            animationDuration: `${duration}s`,
+          }}
+        />
+      );
+    }
+    return stars;
+  };
+
+  // Generate particles
+  const generateParticles = () => {
+    const particles = [];
+    for (let i = 0; i < 20; i++) {
+      const size = Math.random() * 40 + 20;
+      const x = Math.random() * 100;
+      const y = Math.random() * 100;
+      const delay = Math.random() * 6;
+      const duration = Math.random() * 4 + 4;
+      particles.push(
+        <div
+          key={`particle-${i}`}
+          className="particle"
+          style={{
+            width: `${size}px`,
+            height: `${size}px`,
+            left: `${x}%`,
+            top: `${y}%`,
+            animationDelay: `${delay}s`,
+            animationDuration: `${duration}s`,
+          }}
+        />
+      );
+    }
+    return particles;
+  };
+
   const equipment = [
     {
       name: "RoboWash-Car",
@@ -72,8 +126,15 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
-      {/* Modern Animated Background with Parallax */}
+      {/* Modern Animated Background with Parallax, Stars and Particles */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
+        {/* Stars */}
+        {generateStars()}
+        
+        {/* Particles */}
+        {generateParticles()}
+        
+        {/* Gradient Blobs */}
         <div 
           className="absolute top-0 -left-40 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse transition-transform duration-300"
           style={{ transform: `translate(${scrollY * 0.1}px, ${scrollY * 0.15}px)` }}
@@ -90,6 +151,8 @@ const Index = () => {
           className="absolute -bottom-40 -right-40 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl transition-transform duration-300"
           style={{ transform: `translate(${-scrollY * 0.05}px, ${scrollY * 0.12}px)` }}
         />
+        
+        {/* Overlay gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background/98 to-background/95" />
       </div>
       <Toaster position="top-center" richColors />

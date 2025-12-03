@@ -5,6 +5,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
+import { toast, Toaster } from "sonner";
 
 const Index = () => {
   const [activeService, setActiveService] = useState(0);
@@ -64,6 +65,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Toaster position="top-center" richColors />
       <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -433,15 +435,24 @@ const Index = () => {
               const result = await response.json();
               
               if (response.ok) {
-                alert(`Спасибо, ${formData.name}! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.`);
+                toast.success(`Спасибо, ${formData.name}!`, {
+                  description: 'Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.',
+                  duration: 5000,
+                });
                 setIsFormOpen(false);
                 setFormData({ name: '', city: '', phone: '' });
               } else {
-                alert('Ошибка при отправке заявки. Попробуйте позже или позвоните нам: +7 (927) 454-32-32');
+                toast.error('Ошибка при отправке', {
+                  description: 'Попробуйте позже или позвоните нам: +7 (927) 454-32-32',
+                  duration: 5000,
+                });
               }
             } catch (error) {
               console.error('Error:', error);
-              alert('Ошибка при отправке заявки. Попробуйте позже или позвоните нам: +7 (927) 454-32-32');
+              toast.error('Ошибка при отправке', {
+                description: 'Попробуйте позже или позвоните нам: +7 (927) 454-32-32',
+                duration: 5000,
+              });
             }
           }}>
             <div>

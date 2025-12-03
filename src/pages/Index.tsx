@@ -90,9 +90,8 @@ const Index = () => {
             asChild
           >
             <a href="tel:+79274543232">
-              <Icon name="Phone" size={14} className="mr-1" />
+              <Icon name="Phone" size={16} className="sm:mr-1" />
               <span className="hidden sm:inline">Связаться</span>
-              <Icon name="Phone" size={16} className="sm:hidden" />
             </a>
           </Button>
         </div>

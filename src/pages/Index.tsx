@@ -116,7 +116,12 @@ const Index = () => {
                 <Icon name="ArrowRight" size={20} className="mr-2" />
                 Получить консультацию
               </Button>
-              <Button size="lg" variant="outline" className="border-2 text-lg px-8">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-2 text-lg px-8"
+                onClick={() => window.open('https://dzen.ru/video/watch/64ac2d3a1adca932f68feacd?share_to=link', '_blank')}
+              >
                 <Icon name="Play" size={20} className="mr-2" />
                 Смотреть видео
               </Button>

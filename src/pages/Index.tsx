@@ -4,13 +4,20 @@ import Icon from "@/components/ui/icon";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { toast, Toaster } from "sonner";
 
 const Index = () => {
   const [activeService, setActiveService] = useState(0);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [formData, setFormData] = useState({ name: '', city: '', phone: '' });
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const equipment = [
     {
@@ -65,12 +72,24 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
-      {/* Modern Animated Background */}
+      {/* Modern Animated Background with Parallax */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute top-0 -left-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute top-40 right-20 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse delay-2000" />
-        <div className="absolute -bottom-40 -right-40 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
+        <div 
+          className="absolute top-0 -left-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse transition-transform duration-300"
+          style={{ transform: `translate(${scrollY * 0.1}px, ${scrollY * 0.15}px)` }}
+        />
+        <div 
+          className="absolute top-40 right-20 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-3xl animate-pulse delay-1000 transition-transform duration-300"
+          style={{ transform: `translate(${-scrollY * 0.12}px, ${scrollY * 0.08}px)` }}
+        />
+        <div 
+          className="absolute bottom-20 left-1/3 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse delay-2000 transition-transform duration-300"
+          style={{ transform: `translate(${scrollY * 0.08}px, ${-scrollY * 0.1}px)` }}
+        />
+        <div 
+          className="absolute -bottom-40 -right-40 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl transition-transform duration-300"
+          style={{ transform: `translate(${-scrollY * 0.05}px, ${scrollY * 0.12}px)` }}
+        />
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90" />
       </div>
       <Toaster position="top-center" richColors />

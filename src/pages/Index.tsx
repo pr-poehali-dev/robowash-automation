@@ -394,14 +394,7 @@ const Index = () => {
                     />
                   </div>
 
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Сообщение</label>
-                    <textarea 
-                      rows={4}
-                      className="w-full px-4 py-3 rounded-lg border-2 border-input focus:border-primary outline-none transition-colors resize-none"
-                      placeholder="Расскажите о вашем проекте"
-                    />
-                  </div>
+
                   <Button className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-lg py-6">
                     <Icon name="Send" size={20} className="mr-2" />
                     Отправить заявку

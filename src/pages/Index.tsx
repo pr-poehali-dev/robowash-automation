@@ -220,7 +220,7 @@ const Index = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {equipment.map((item, idx) => (
-              <Card key={idx} className="group hover:shadow-2xl transition-all duration-300 border-2 hover:border-primary overflow-hidden">
+              <Card key={idx} className="group hover:shadow-2xl transition-all duration-300 border-2 hover:border-primary overflow-hidden flex flex-col">
                 <div className="overflow-hidden">
                   <img 
                     src={item.image} 
@@ -228,10 +228,10 @@ const Index = () => {
                     className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-                <CardContent className="p-6">
+                <CardContent className="p-6 flex flex-col h-full">
                   <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">{item.name}</h3>
                   <p className="text-foreground/70 mb-4">{item.description}</p>
-                  <div className="space-y-2 mb-6">
+                  <div className="space-y-2 mb-6 flex-grow">
                     {item.features.map((feature, featureIdx) => (
                       <div key={featureIdx} className="flex items-center gap-2">
                         <Icon name="Check" size={16} className="text-primary" />

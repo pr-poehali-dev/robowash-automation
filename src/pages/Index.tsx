@@ -319,7 +319,7 @@ const Index = () => {
             <p className="text-xl text-foreground/70">Готовы ответить на все ваши вопросы</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-md md:max-w-none mx-auto">
+          <div className="grid md:grid-cols-2 gap-8">
             <Card className="border-2">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-6">Контактная информация</h3>

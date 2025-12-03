@@ -608,7 +608,7 @@ const Index = () => {
             </div>
           </div>
           <div className="pt-8 border-t border-background/20 text-center text-sm text-background/70">
-            <p>© 2024 RoboWash. Все права защищены.</p>
+            <p>© 2020 RoboWash. Все права защищены.</p>
           </div>
         </div>
       </footer>

@@ -16,7 +16,7 @@ const HeroSection = ({ onOpenForm }: HeroSectionProps) => {
 
   return (
     <section className="pt-32 pb-20 px-4 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 pointer-events-none" />
       
       <div className="container mx-auto text-center max-w-4xl px-4">
         <div className="animate-fade-in">

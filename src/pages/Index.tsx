@@ -84,7 +84,10 @@ const Index = () => {
             <a href="#services" className="text-foreground/80 hover:text-primary transition-colors">Услуги</a>
             <a href="#contact" className="text-foreground/80 hover:text-primary transition-colors">Контакты</a>
           </div>
-          <Button className="bg-gradient-to-r from-primary to-secondary hover:opacity-90">
+          <Button 
+            className="bg-gradient-to-r from-primary to-secondary hover:opacity-90"
+            onClick={() => setIsFormOpen(true)}
+          >
             <Icon name="Phone" size={16} className="mr-2" />
             Связаться
           </Button>

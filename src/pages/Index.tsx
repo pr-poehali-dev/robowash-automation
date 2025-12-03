@@ -393,14 +393,7 @@ const Index = () => {
                       placeholder="+7 (___) ___-__-__"
                     />
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Email</label>
-                    <input 
-                      type="email" 
-                      className="w-full px-4 py-3 rounded-lg border-2 border-input focus:border-primary outline-none transition-colors"
-                      placeholder="your@email.com"
-                    />
-                  </div>
+
                   <div>
                     <label className="block text-sm font-medium mb-2">Сообщение</label>
                     <textarea 

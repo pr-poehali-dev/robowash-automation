@@ -97,7 +97,7 @@ const Index = () => {
         <div className="container mx-auto text-center max-w-4xl">
           <div className="animate-fade-in">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent leading-tight">
-              Роботизированные автомойки нового поколения
+              Автоматические мойки нового поколения
             </h1>
             <p className="text-xl md:text-2xl text-foreground/70 mb-8 max-w-2xl mx-auto">
               Производство, установка и обслуживание автоматических моек для вашего бизнеса

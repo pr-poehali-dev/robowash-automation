@@ -619,7 +619,7 @@ const Index = () => {
       <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
         {/* Telegram Button */}
         <a
-          href="https://t.me/robowash_rus"
+          href="https://t.me/+79274543246"
           target="_blank"
           rel="noopener noreferrer"
           className="w-14 h-14 bg-[#0088cc] hover:bg-[#0077b5] rounded-full flex items-center justify-center shadow-lg transition-all hover:scale-110"

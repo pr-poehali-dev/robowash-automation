@@ -380,6 +380,11 @@ const Index = () => {
                         </svg>
                       </a>
                     </Button>
+                    <Button size="icon" variant="outline" className="hover:bg-primary hover:text-white hover:border-primary" asChild>
+                      <a href="https://www.youtube.com/@robowash_rus" target="_blank" rel="noopener noreferrer">
+                        <Icon name="Youtube" size={20} />
+                      </a>
+                    </Button>
                   </div>
                 </div>
               </CardContent>

@@ -85,12 +85,14 @@ const Index = () => {
             <a href="#contact" className="text-foreground/80 hover:text-primary transition-colors">Контакты</a>
           </div>
           <Button 
-            className="bg-gradient-to-r from-primary to-secondary hover:opacity-90"
+            size="sm"
+            className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-xs md:text-sm"
             asChild
           >
             <a href="tel:+79274543232">
-              <Icon name="Phone" size={16} className="mr-2" />
-              Связаться
+              <Icon name="Phone" size={14} className="mr-1" />
+              <span className="hidden sm:inline">Связаться</span>
+              <Icon name="Phone" size={16} className="sm:hidden" />
             </a>
           </Button>
         </div>

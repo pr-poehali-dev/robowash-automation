@@ -7,12 +7,12 @@ interface AnimatedBackgroundProps {
 const AnimatedBackground = ({ scrollY }: AnimatedBackgroundProps) => {
   const stars = useMemo(() => {
     const result = [];
-    for (let i = 0; i < 100; i++) {
-      const size = Math.random() * 2 + 1;
+    for (let i = 0; i < 150; i++) {
+      const size = Math.random() * 3 + 1;
       const x = Math.random() * 100;
       const y = Math.random() * 100;
       const delay = Math.random() * 3;
-      const duration = Math.random() * 2 + 2;
+      const duration = Math.random() * 3 + 2;
       result.push(
         <div
           key={`star-${i}`}
@@ -59,9 +59,6 @@ const AnimatedBackground = ({ scrollY }: AnimatedBackgroundProps) => {
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden">
-      {stars}
-      {particles}
-      
       <div 
         className="absolute top-0 -left-40 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse transition-transform duration-300"
         style={{ transform: `translate(${scrollY * 0.1}px, ${scrollY * 0.15}px)` }}
@@ -79,7 +76,10 @@ const AnimatedBackground = ({ scrollY }: AnimatedBackgroundProps) => {
         style={{ transform: `translate(${-scrollY * 0.05}px, ${scrollY * 0.12}px)` }}
       />
       
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background/98 to-background/95" />
+      <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/90 to-background/85" />
+      
+      {stars}
+      {particles}
     </div>
   );
 };

@@ -225,15 +225,25 @@
 
   .star {
     position: absolute;
-    background: white;
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 50%;
     animation: twinkle 3s ease-in-out infinite;
+    box-shadow:
+      0 0 4px rgba(255, 255, 255, 0.8),
+      0 0 8px rgba(255, 255, 255, 0.4);
+    z-index: 1;
   }
 
   .particle {
     position: absolute;
-    background: radial-gradient(circle, rgba(14, 165, 233, 0.8), transparent);
+    background: radial-gradient(
+      circle,
+      rgba(14, 165, 233, 0.6),
+      rgba(14, 165, 233, 0.2),
+      transparent
+    );
     border-radius: 50%;
     animation: float 6s ease-in-out infinite;
+    z-index: 1;
   }
 }

@@ -218,28 +218,28 @@ const Index = () => {
             <p className="text-xl text-foreground/70">Современные решения для любого типа транспорта</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 items-stretch">
             {equipment.map((item, idx) => (
               <Card key={idx} className="group hover:shadow-2xl transition-all duration-300 border-2 hover:border-primary overflow-hidden flex flex-col">
                 <div className="overflow-hidden">
                   <img 
                     src={item.image} 
                     alt={item.name}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-                <CardContent className="p-6 flex flex-col h-full">
-                  <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">{item.name}</h3>
-                  <p className="text-foreground/70 mb-4">{item.description}</p>
-                  <div className="space-y-2 mb-6 flex-grow">
+                <CardContent className="p-5 flex flex-col flex-grow">
+                  <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">{item.name}</h3>
+                  <p className="text-foreground/70 text-sm mb-3">{item.description}</p>
+                  <div className="space-y-1.5 mb-4 flex-grow">
                     {item.features.map((feature, featureIdx) => (
                       <div key={featureIdx} className="flex items-center gap-2">
-                        <Icon name="Check" size={16} className="text-primary" />
-                        <span className="text-sm">{feature}</span>
+                        <Icon name="Check" size={14} className="text-primary flex-shrink-0" />
+                        <span className="text-xs">{feature}</span>
                       </div>
                     ))}
                   </div>
-                  <Button size="sm" className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90">
+                  <Button size="sm" className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 mt-auto">
                     Подробнее
                   </Button>
                 </CardContent>

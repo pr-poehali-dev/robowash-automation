@@ -361,8 +361,10 @@ const Index = () => {
                         <Icon name="Instagram" size={20} />
                       </a>
                     </Button>
-                    <Button size="icon" variant="outline" className="hover:bg-primary hover:text-white hover:border-primary">
-                      <Icon name="Send" size={20} />
+                    <Button size="icon" variant="outline" className="hover:bg-primary hover:text-white hover:border-primary" asChild>
+                      <a href="https://t.me/robowash_rus" target="_blank" rel="noopener noreferrer">
+                        <Icon name="Send" size={20} />
+                      </a>
                     </Button>
                     <Button size="icon" variant="outline" className="hover:bg-primary hover:text-white hover:border-primary">
                       <Icon name="Youtube" size={20} />

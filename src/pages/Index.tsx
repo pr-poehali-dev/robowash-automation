@@ -595,7 +595,7 @@ const Index = () => {
               <ul className="space-y-2 text-sm text-background/70">
                 <li><a href="#contact" className="hover:text-background transition-colors">Контакты</a></li>
 
-                <li><a href="#" className="hover:text-background transition-colors">Гарантия</a></li>
+
               </ul>
             </div>
             <div>

@@ -64,7 +64,15 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      {/* Modern Animated Background */}
+      <div className="fixed inset-0 -z-10 overflow-hidden">
+        <div className="absolute top-0 -left-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-40 right-20 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse delay-2000" />
+        <div className="absolute -bottom-40 -right-40 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90" />
+      </div>
       <Toaster position="top-center" richColors />
       <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -98,9 +106,7 @@ const Index = () => {
       </nav>
 
       <section className="pt-32 pb-20 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 -z-10" />
-        <div className="absolute top-20 right-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl -z-10" />
-        <div className="absolute bottom-10 left-10 w-96 h-96 bg-secondary/20 rounded-full blur-3xl -z-10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
         
         <div className="container mx-auto text-center max-w-4xl px-4">
           <div className="animate-fade-in">
@@ -145,7 +151,8 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="about" className="py-20 px-4 bg-muted/50">
+      <section id="about" className="py-20 px-4 relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-secondary/5 via-transparent to-accent/5 -z-10" />
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
             <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">⭐ НАДЁЖНЫЙ ПРОИЗВОДИТЕЛЬ</span>
@@ -236,8 +243,8 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="equipment" className="py-20 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background -z-10" />
+      <section id="equipment" className="py-20 px-4 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/3 to-transparent -z-10" />
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-semibold mb-4">💎 ПРЕМИУМ ОБОРУДОВАНИЕ</span>
@@ -273,7 +280,8 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="services" className="py-20 px-4 bg-muted/50">
+      <section id="services" className="py-20 px-4 relative">
+        <div className="absolute inset-0 bg-gradient-to-bl from-accent/5 via-transparent to-primary/5 -z-10" />
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-semibold mb-4">🚀 ВСЁ ВКЛЮЧЕНО</span>

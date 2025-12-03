@@ -133,10 +133,10 @@ const Index = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 animate-slide-up">
             {advantages.map((item, idx) => (
               <Card key={idx} className="border-2 hover:border-primary transition-all hover:scale-105">
-                <CardContent className="p-6 text-center">
-                  <Icon name={item.icon as any} className="text-primary mx-auto mb-3" size={32} />
-                  <div className="text-3xl font-bold text-primary mb-1">{item.number}</div>
-                  <div className="text-sm text-foreground/70">{item.label}</div>
+                <CardContent className="p-4 md:p-6 text-center">
+                  <Icon name={item.icon as any} className="text-primary mx-auto mb-2" size={28} />
+                  <div className="text-2xl md:text-3xl font-bold text-primary mb-1">{item.number}</div>
+                  <div className="text-xs md:text-sm text-foreground/70 leading-tight">{item.label}</div>
                 </CardContent>
               </Card>
             ))}

@@ -101,7 +101,7 @@ const Index = () => {
         <div className="absolute top-20 right-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl -z-10" />
         <div className="absolute bottom-10 left-10 w-96 h-96 bg-secondary/20 rounded-full blur-3xl -z-10" />
         
-        <div className="container mx-auto text-center max-w-4xl">
+        <div className="container mx-auto text-center max-w-4xl px-4">
           <div className="animate-fade-in">
             <h1 className="text-3xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent leading-tight">
               Автоматические мойки нового поколения

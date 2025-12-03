@@ -356,8 +356,10 @@ const Index = () => {
                 <div className="mt-8 pt-8 border-t">
                   <div className="font-medium mb-3">Мы в соцсетях</div>
                   <div className="flex gap-3">
-                    <Button size="icon" variant="outline" className="hover:bg-primary hover:text-white hover:border-primary">
-                      <Icon name="Instagram" size={20} />
+                    <Button size="icon" variant="outline" className="hover:bg-primary hover:text-white hover:border-primary" asChild>
+                      <a href="https://www.instagram.com/robowash_rus" target="_blank" rel="noopener noreferrer">
+                        <Icon name="Instagram" size={20} />
+                      </a>
                     </Button>
                     <Button size="icon" variant="outline" className="hover:bg-primary hover:text-white hover:border-primary">
                       <Icon name="Send" size={20} />

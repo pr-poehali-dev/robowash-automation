@@ -1,12 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
+import { useState } from "react";
 
 interface HeroSectionProps {
   onOpenForm: () => void;
 }
 
 const HeroSection = ({ onOpenForm }: HeroSectionProps) => {
+  const [showVideo, setShowVideo] = useState(false);
+  
   const advantages = [
     { number: "50+", label: "Установленных моек", icon: "CheckCircle2" },
     { number: "24/7", label: "Техподдержка", icon: "Clock" },
@@ -26,7 +29,7 @@ const HeroSection = ({ onOpenForm }: HeroSectionProps) => {
           <p className="text-xl md:text-2xl text-foreground/70 mb-8 max-w-2xl mx-auto">
             Роботизированные мойки с окупаемостью за 8-12 месяцев. Установка под ключ за 7 дней
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-wrap gap-4 justify-center mb-8">
             <Button 
               size="lg" 
               className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-lg px-8 animate-glow shadow-lg"
@@ -39,12 +42,28 @@ const HeroSection = ({ onOpenForm }: HeroSectionProps) => {
               size="lg" 
               variant="outline" 
               className="border-2 border-primary/50 text-lg px-8 hover:border-primary hover:bg-primary/10 hover:shadow-[0_0_20px_rgba(14,165,233,0.3)] transition-all"
-              onClick={() => window.open('https://dzen.ru/video/watch/64ac2d3a1adca932f68feacd?share_to=link', '_blank')}
+              onClick={() => setShowVideo(!showVideo)}
             >
-              <Icon name="Play" size={20} className="mr-2" />
-              Смотреть видео
+              <Icon name={showVideo ? "X" : "Play"} size={20} className="mr-2" />
+              {showVideo ? "Закрыть видео" : "Смотреть видео"}
             </Button>
           </div>
+
+          {showVideo && (
+            <div className="max-w-3xl mx-auto mb-8 animate-fade-in">
+              <div className="relative rounded-xl overflow-hidden shadow-2xl border-2 border-primary/30">
+                <video 
+                  controls 
+                  autoPlay
+                  className="w-full aspect-video bg-black"
+                  poster="https://cdn.poehali.dev/files/73b4fb79-af64-41a2-8614-1a9f7e6ba02e.png"
+                >
+                  <source src="https://cdn.poehali.dev/your-video.mp4" type="video/mp4" />
+                  Ваш браузер не поддерживает видео
+                </video>
+              </div>
+            </div>
+          )}
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 animate-slide-up">
